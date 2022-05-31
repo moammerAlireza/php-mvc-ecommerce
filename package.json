@@ -1,0 +1,9 @@
+{
+    "author": "Alireza Moammer",
+    "description": "AliCommerce store",
+    "private": true,
+    "dependencies": {
+        "gulp": "4.0.2",
+        "laravel-elixir": "6.0.0-18"
+    }
+}
