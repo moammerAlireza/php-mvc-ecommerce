@@ -2,4 +2,5 @@
 
 $router= new AltoRouter;
 
-$router->map('GET', '/', 'App\controllers\IndexController@show', 'home');
+$router->map('GET', '/', 'App\Controllers\IndexController@show', 'home');
+
