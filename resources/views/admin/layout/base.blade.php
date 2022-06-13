@@ -6,21 +6,10 @@
     <title>admin panel - @yield('title') </title>
 
     <link rel="stylesheet" href="/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script>
 </head>
 <body>
-<div class="off-canvas position-left reveal-for-large" id="offCanvas" data-off-canvas>
-
-<!-- side bar -->
-<ul class="vertical menu">
-  <li><a href="#">Foundation</a></li>
-  <li><a href="#">Dot</a></li>
-  <li><a href="#">ZURB</a></li>
-  <li><a href="#">Com</a></li>
-  <li><a href="#">Slash</a></li>
-  <li><a href="#">Sites</a></li>
-</ul>
-<!-- end side bar -->
-</div>
+  @include('includes.admin-sidebar')
 
 <div class="off-canvas-content" data-off-canvas-content>
 <!-- Your page content lives here -->
