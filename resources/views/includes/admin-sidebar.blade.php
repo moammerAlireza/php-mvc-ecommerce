@@ -1,8 +1,8 @@
 <!-- side bar -->
-<div class="off-canvas position-left reveal-for-large" id="offCanvas" data-off-canvas>
+<div class="off-canvas position-left reveal-for-large nav" id="offCanvas" data-off-canvas>
 <h3>Welcome Admin</h3>
 
-<div>
+<div class="image-holder text-center">
   <img src="/images/ali.jpg" alt="ali" title="Admin">
   <p>Alireza.M</p>
 </div>

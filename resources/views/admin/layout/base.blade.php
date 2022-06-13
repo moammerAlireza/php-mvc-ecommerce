@@ -11,12 +11,12 @@
 <body>
   @include('includes.admin-sidebar')
 
-<div class="off-canvas-content" data-off-canvas-content>
+<div class="off-canvas-content admin-title-bar" data-off-canvas-content>
 <!-- Your page content lives here -->
 <div class="title-bar">
   <div class="title-bar-left">
     <button class="menu-icon hide-for-large" type="button" data-open="offCanvas"></button>
-    <span class="title-bar-title"> {{$_ENV['APP_NAME']}};</span>
+    <span class="title-bar-title"> {{$_ENV['APP_NAME']}}</span>
   </div>
 </div>
     @yield('content')
