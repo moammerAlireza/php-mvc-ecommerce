@@ -9,9 +9,7 @@
             <h2>Product Categories</h2>
         </div>
 
-        @if($message)
-            <p> {{ $message }} </p>
-        @endif
+       @include('includes.message')
 
 
         <div class="row expanded">
