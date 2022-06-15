@@ -10,11 +10,15 @@ use App\classes\ValidateRequest;
 
 class ProductCategoryController
 {
+    public $table_name = 'categories';
     public function show()
     {
         $message = ""; 
-        $categories = category::all();
-        return view('/admin/products/categories', compact(['categories', 'message']));
+        $total = category::all()->count();
+        $object = new Category;
+
+        list($categories, $links) = paginate(2, $total, $this->table_name, $object);
+        return view('/admin/products/categories', compact(['categories', 'message','links']));
     }
 
     public function store()
