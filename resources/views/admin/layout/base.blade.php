@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script>
 </head>
-<body>
+<body data-page-id="@yield('data-page-id')">
   @include('includes.admin-sidebar')
 
 <div class="off-canvas-content admin-title-bar" data-off-canvas-content>
