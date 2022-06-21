@@ -14,10 +14,12 @@ class CSRFToken
     }
 
     //Verify CSRF Token
-    public static function VerifyCSRFToken($requestToken)
+    public static function VerifyCSRFToken($requestToken, $regenerate=true)
     {
         if(session::has('token') && session::get('token') === $requestToken){
-            session::remove('token');
+            if($regenerate){
+                session::remove('token');
+            }
             return true;
         }
         return false;

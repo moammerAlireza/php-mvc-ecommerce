@@ -1,0 +1,34 @@
+
+
+.reveal{
+    border: 0 px;
+    border-radius: 0.5 rem;
+
+    &:focus{
+       outline-style: none; 
+    }
+
+    h2{
+        font-size: 1.5 rem;
+        font-weight:500 px;
+    }
+}
+
+.notification{
+    display: none;
+
+    ul{
+        li{
+            list-style-type: none;
+        }
+    }
+}
+
+
+.fa-edit{
+    color: #895848;
+}
+
+.fa-times{
+    color: #ff0000;
+}
