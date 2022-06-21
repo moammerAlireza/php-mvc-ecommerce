@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="category">
-        <div class="row expanded">
+        <div class="row expanded column">
             <h2>Product Categories</h2>
         </div>
 
@@ -43,7 +43,7 @@
         <div class="row expanded">
             <div class="small-12 medium-11 column" style="margin-right: 10%; margin-left: 10%" >
                 @if(count($categories))
-                    <table class="hover">
+                    <table class="hover" data-form="deleteForm">
                         <tbody>
                             @foreach ($categories as $category )
                                 <tr>
@@ -51,15 +51,24 @@
                                     <td>{{$category['slug']}}</td>
                                     <td>{{$category['added']}}</td>
                                     <td width="100" class="text-right">
+                                       <span>
                                         <a data-open="item-{{$category['id']}}"><i class="fa fa-edit" ></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                       </span>
+                                        
+                                       <span style="display: inline-block">
+                                        <form method="POST" action="/admin/product/categories/{{$category['id']}}/delete"
+                                         class="delete-item">
+                                            <input type="hidden" name="token" value="{{\App\classes\CSRFToken::_token()}}">
+                                            <button type="submit"><i class="fa fa-times delete"></i></button>
+                                        </form>
+                                       </span>
                                         
                                         <!-- Edit category model-->
                                         <div class="reveal" id="item-{{$category['id']}}" 
                                         data-reveal data-close-on-click="false" data-close-on-esc="false"
                                         data-animation-in="scale-in-up">
                                             <div class="notification callout primary"></div>
-                                            <h1>Edit Category</h1>
+                                            <h2>Edit Category</h2>
                                             <form>
                                                 <div class="input-group">
                                                     <input type="text" id="item-name-{{$category['id']}}" name="name" value="{{$category['name']}}">
@@ -88,4 +97,5 @@
             </div>
         </div>
     </div>
+    @include('includes.delete-modal')
 @endsection

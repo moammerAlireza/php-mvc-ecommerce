@@ -12,7 +12,7 @@
         "illuminate/database": "^5.4",
         "phpmailer/phpmailer": "^5.2",
         "voku/pagination": "^2.1",
-        "nesbot/carbon": "^2.58"
+        "nesbot/carbon": "2.58"
         
     },
 

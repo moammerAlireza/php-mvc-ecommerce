@@ -3,41 +3,42 @@ namespace App\controllers\admin;
 use App\models\Category;
 use App\classes\Request;
 use App\classes\CSRFToken;
-use Illuminate\Support\Facades\Session;
 use Dotenv\Validator;
 use App\classes\ValidateRequest;
+use App\controllers\BaseController;
+use App\classes\Redirect;
+use App\classes\Session;
 //use Illuminate\Support\Facades\Request;
 
-class ProductCategoryController
+class ProductCategoryController extends BaseController
 {
-    
+
     public $table_name = 'categories';
     public $categories;
     public $links;
-    
+
     public function __construct()
     {
-       
-        $total = category::all()->count();
+
+        $total = Category::all()->count();
         $object = new Category;
 
-        list($this->categories, $this->links) = paginate(5, $total, $this->table_name, $object);
+        list($this->categories, $this->links) = paginate(3, $total, $this->table_name, $object);
     }
 
     public function show()
     {
-        
         return view('/admin/products/categories', [
-            'categories'=> $this->categories, 'links'=> $this->links
-            ]);
+            'categories' => $this->categories, 'links' => $this->links
+        ]);
     }
 
     public function store()
     {
-        if (Request::has('post')){
+        if (Request::has('post')) {
             $request = Request::get('post');
-            
-            if(CSRFToken::VerifyCSRFToken($request->token)){
+
+            if (CSRFToken::VerifyCSRFToken($request->token)) {
 
                 $rules = [
                     'name' => ['required' => true, 'minLength' => 3, 'string' => true, 'unique' => 'categories']
@@ -46,11 +47,11 @@ class ProductCategoryController
                 $validate = new ValidateRequest;
                 $validate->abide($_POST, $rules);
 
-                if($validate->hasError()){
-                   $errors=$validate->getErrorMessage();
-                   return view('/admin/products/categories',[
-                    'categories'=> $this->categories, 'links'=> $this->links, 'errors'=>$errors
-                   ]);
+                if ($validate->hasError()) {
+                    $errors = $validate->getErrorMessage();
+                    return view('/admin/products/categories', [
+                        'categories' => $this->categories, 'links' => $this->links, 'errors' => $errors
+                    ]);
                 }
                 //process form data
                 Category::create([
@@ -70,10 +71,10 @@ class ProductCategoryController
 
     public function edit($id)
     {
-        if (Request::has('post')){
+        if (Request::has('post')) {
             $request = Request::get('post');
-            
-            if(CSRFToken::VerifyCSRFToken($request->token, false)){
+
+            if (CSRFToken::VerifyCSRFToken($request->token, false)) {
 
                 $rules = [
                     'name' => ['required' => true, 'minLength' => 3, 'string' => true, 'unique' => 'categories']
@@ -94,6 +95,24 @@ class ProductCategoryController
                 exit;
             }
             throw new \Exception('Token mismatch');
+        }
+        return null;
+    }
+
+
+    public function delete($id)
+    {
+        if (Request::has('post')) {
+            $request = Request::get('post');
+
+            if (CSRFToken::VerifyCSRFToken($request->token)) {
+                Category::destroy($id);
+                Session::add('success', 'Category Deleted');
+                Redirect::to('/admin/product/categories');
+            }
+            else {
+                throw new \Exception('Token mismatch');
+            }
         }
         return null;
     }

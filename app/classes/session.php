@@ -40,4 +40,24 @@ class Session
             unset($_SESSION[$name]);
         }
     }
+    /**
+     * flash the message and unset old session
+     * @param mixed $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function flash($name, $value=''){
+         
+        if(self::has($name)){
+            $old_value = self::get($name);
+            self::remove($name);
+
+            return $old_value;
+        }else{
+            self::add($name, $value);
+        }
+
+        return null;
+
+    }
 }

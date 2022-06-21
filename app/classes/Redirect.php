@@ -1,5 +1,6 @@
 <?php
 namespace App\classes;
+use Illuminate\Support\Facades\Facade;
 
  
 class Redirect
@@ -13,7 +14,7 @@ class Redirect
      */
     public static function to($page)
     {
-        header("location:$page");
+        header("location: $page");
     }
     
     /**
@@ -24,7 +25,7 @@ class Redirect
     public static function back()
     {
         $uri= $_SERVER['REQUEST_URI'];
-        header("location:$uri");
+        header("location: $uri");
     }
 
 }

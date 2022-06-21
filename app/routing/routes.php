@@ -16,3 +16,6 @@ $router->map('GET', '/admin/product/categories',
 
 $router->map('POST', '/admin/product/categories/[i:id]/edit',
  'App\controllers\admin\ProductCategoryController@edit', 'edit_product_category');
+
+ $router->map('POST', '/admin/product/categories/[i:id]/delete',
+ 'App\controllers\admin\ProductCategoryController@delete', 'delete_product_category');
