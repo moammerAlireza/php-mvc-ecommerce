@@ -22,11 +22,11 @@ class SubCategoryController extends BaseController
             $request = Request::get('post');
             $extra_errors=[];
 
-            if (CSRFToken::VerifyCSRFToken($request->token)) {
+            if (CSRFToken::VerifyCSRFToken($request->token,false)) {
 
                 $rules = [
                     'name' => ['required' => true, 'minLength' => 3, 'string' => true],
-                    'category_id'=>['required']
+                    'category_id'=>['required'=>true]
                 ];
 
                 $validate = new ValidateRequest;
@@ -39,12 +39,12 @@ class SubCategoryController extends BaseController
                     $extra_errors['name'] = array('Subcategory already exist.');
                   }
 
-                $category = Category::where('id', $request->id)->exist();
+                $category = Category::where('id', $request->category_id)->exists();
                 if(!$category){
                     $extra_errors['name'] = array('Invalid product category.');
                 } 
 
-                if ($validate->hasError() || $duplicate_subcategory || !$category) {
+                if ($validate->hasError() || $duplicate_subcategory || !$category){ 
                     $errors = $validate->getErrorMessage();
                     count($extra_errors) ? $response = array_merge($errors, $extra_errors) : $response = $errors;
                     header('HTTP/1.1 422 Unprocessable Entity', true, 422);
@@ -58,7 +58,8 @@ class SubCategoryController extends BaseController
                     'category_id' => $request->category_id,
                     'slug' => slug($request->name)
                 ]);
-                json_encode(['success' => 'Subcategory create successfully.']);
+                echo json_encode(['success' => 'Subcategory create successfully.']);
+                exit;
 
             }
             throw new \Exception('Token mismatch');
