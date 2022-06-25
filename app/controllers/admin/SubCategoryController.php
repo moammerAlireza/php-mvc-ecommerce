@@ -122,8 +122,8 @@ class SubCategoryController extends BaseController
             $request = Request::get('post');
 
             if (CSRFToken::VerifyCSRFToken($request->token)) {
-                Category::destroy($id);
-                Session::add('success', 'Category Deleted');
+                SubCategory::destroy($id);
+                Session::add('success', 'Subategory Deleted.');
                 Redirect::to('/admin/product/categories');
             }
             else {

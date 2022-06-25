@@ -1,6 +1,6 @@
 <div class="row expanded column">
     @if(isset($errors)&& count($errors))
-        <div class="callout alert" data-closable>
+        <div class="callout alert" data-closable style="background-color: #e27676">
             @foreach ($errors as $error_array)
                 @foreach ($error_array as $error_item)
                     {{$error_item}} <br/>

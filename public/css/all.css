@@ -6885,6 +6885,16 @@ html.is-reveal-open body {
   display: none;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table th, table tr, table td {
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  border: 1px solid #c0c0c0;
+}
+
 .reveal {
   border: 0;
   border-radius: 0.5rem;

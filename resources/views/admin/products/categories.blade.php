@@ -6,8 +6,9 @@
 
 @section('content')
     <div class="category">
-        <div class="row expanded column">
-            <h2>Product Categories</h2>
+        <div class="row expanded">
+            <div class="column medium-11"><h2 style="font-size: 1.5rem;font-weight:500px;padding-left: 40px">
+                Product Categories</h2> <hr></div>
         </div>
 
        @include('includes.message')
@@ -43,14 +44,17 @@
         <div class="row expanded">
             <div class="small-12 medium-11 column" style="margin-right: 10%; margin-left: 10%" >
                 @if(count($categories))
-                    <table class="hover" data-form="deleteForm">
+                    <table class="hover unstriped" data-form="deleteForm">
+                        <thead>
+                            <tr><th>Name</th><th>Slug</th><th>Date Created</th><th width="50">Action</th></tr>
+                        </thead>
                         <tbody>
                             @foreach ($categories as $category )
                                 <tr>
                                     <td>{{$category['name']}}</td>
                                     <td>{{$category['slug']}}</td>
                                     <td>{{$category['added']}}</td>
-                                    <td width="100" class="text-right">
+                                    <td width="50" class="text-right">
 
 
                                             <span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false"
@@ -130,22 +134,26 @@
     </div>
 
     <div class="subcategory">
-        <div class="row expanded column">
-            <h2>Sub Categories</h2>
+        <div class="row expanded">
+            <div class="column medium-11"><h2 style="font-size: 1.5rem;font-weight:500px;padding-left:40px;">
+                SubCategories</h2> <hr></div>
         </div>
         
 
         <div class="row expanded">
             <div class="small-12 medium-11 column" style="margin-right: 10%; margin-left: 10%" >
                 @if(count($subcategories))
-                    <table class="hover" data-form="deleteForm">
+                    <table class="hover unstriped" data-form="deleteForm">
+                        <thead>
+                          <tr><th>Name</th><th>Slug</th><th>Date Created</th><th width="50">Action</th></tr>
+                        </thead>
                         <tbody>
                             @foreach ($subcategories as $subcategory )
                                 <tr>
                                     <td>{{$subcategory['name']}}</td>
                                     <td>{{$subcategory['slug']}}</td>
                                     <td>{{$subcategory['added']}}</td>
-                                    <td width="100" class="text-right">
+                                    <td width="50" class="text-right">
 
 
                                         
