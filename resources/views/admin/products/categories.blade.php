@@ -166,14 +166,31 @@
                                                 <!-- Edit Subcategory model-->
                                                 <div class="reveal" id="item-subcategory-{{$subcategory['id']}}" 
                                                     data-reveal data-close-on-click="false" data-close-on-esc="false"
-                                                    data-animation-in="scale-in-up">
+                                                    data-animation-in="scale-in-up" >
                                                     <div class="notification callout primary"></div>
                                                     <h2>Edit Subategory</h2>
                                                     <form>
+                                                        <div>
                                                         <div class="input-group">
                                                             <input type="text" id="item-subcategory-name-{{$subcategory['id']}}" value="{{$subcategory['name']}}">
-                                                            <div class="input-group-button">
-                                                                <input type="submit" class="button update-subcategory" id="{{$subcategory['id']}}"
+                                                        </div>
+                                                        <div>
+                                                            <label >Change Categorty
+                                                                <select id="item-category-{{$subcategory['category_id']}}">
+                                                                    @foreach (\App\Models\Category::all() as $category)
+                                                                        @if ($category->id == $subcategory['category_id'])
+                                                                        <option selected="selected" value="{{$category->id}}">
+                                                                            {{$category->name}}
+                                                                        </option>
+                                                                        @endif
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </label>
+                                                        </div>
+                                                            <div>
+                                                                <input type="submit" class="button update-subcategory"
+                                                                  id="{{$subcategory['id']}}" data-category-id="{{$subcategory['category_id']}}"
                                                                 data-token="{{\App\classes\CSRFToken::_token()}}"
                                                                 value="Update">
                                                             </div>
@@ -186,7 +203,7 @@
                                                  <!--End Edit category model-->
                                     </td>
                                 </tr>
-                                
+                                 
                             @endforeach
                         </tbody>
                     </table>
