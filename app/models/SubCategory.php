@@ -19,7 +19,7 @@ class SubCategory extends Model
         $subcategories = array();
         foreach($data as $item){
             $added = new Carbon($item->created_at);
-            array_push($categories,[
+            array_push($subcategories,[
                 'id'=>$item->id,
                 'name'=>$item->name,
                 'category_id'=>$item->category_id,
