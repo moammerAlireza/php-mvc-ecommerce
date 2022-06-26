@@ -46,8 +46,11 @@
 
                     <div class="small-12 medium-6 column">
                         <label>Product Subcategory:
-                            <input type="text" name="Price" placeholder="Product Price"
-                            value="{{\App\classes\Request::old('post','Price')}}">
+                            <select name="subcategory" id="product-subcategory">
+                                <option value="{{\App\classes\Request::old('post','subcategory') ? : ""}}">
+                                    {{\App\classes\Request::old('post','subcategory') ? : "Select Subcategory"}}
+                                </option>
+                            </select>
                         </label>
                     </div>
 
