@@ -50,3 +50,6 @@ $router->map('POST', '/admin/product/categories/[i:id]/edit',
 
  $router->map('POST', '/admin/product/edit',
  'App\controllers\admin\ProductController@edit', 'edit_product');
+
+ $router->map('POST', '/admin/product/[i:id]/delete',
+ 'App\controllers\admin\ProductController@delete', 'delete_product');
