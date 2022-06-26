@@ -11,7 +11,7 @@ use App\classes\Session;
 use App\models\SubCategory;
 
 
-class ProductCategoryController extends BaseController
+class ProductController extends BaseController
 {
 
     public $table_name = 'categories';
@@ -23,20 +23,17 @@ class ProductCategoryController extends BaseController
     public function __construct()
     {
 
-        $total = Category::all()->count();
-        $subTotal = SubCategory::all()->count();
-        $object = new Category;
+        $this->categories = Category::all();
+        
 
-        list($this->categories, $this->links) = paginate(3, $total, $this->table_name, $object);
-        list($this->subcategories, $this->subcategories_links) = paginate(3, $subTotal, 'sub_categories', new SubCategory);
+        //list($this->categories, $this->links) = paginate(3, $total, $this->table_name, $object);
+        //list($this->subcategories, $this->subcategories_links) = paginate(3, $subTotal, 'sub_categories', new SubCategory);
     }
 
-    public function show()
+    public function showCreateProductForm()
     {
-        return view('/admin/products/categories', [
-            'categories' => $this->categories, 'links' => $this->links,
-            'subcategories' => $this->subcategories, 'subcategories_links' => $this->subcategories_links,
-        ]);
+        $categories = $this->categories;
+        return view('/admin/products/create', compact('categories'));
     }
 
     public function store()
