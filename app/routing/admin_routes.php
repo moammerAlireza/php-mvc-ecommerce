@@ -40,3 +40,6 @@ $router->map('POST', '/admin/product/categories/[i:id]/edit',
 
  $router->map('POST', '/admin/product/create',
  'App\controllers\admin\ProductController@store', 'create_product');
+
+ $router->map('GET', '/admin/products',
+ 'App\controllers\admin\ProductController@show', 'show_products');
