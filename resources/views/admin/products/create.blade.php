@@ -13,7 +13,7 @@
 
        @include('includes.message')
        
-       <form method="POST" action="\admin\product\create">
+       <form method="POST" action="\admin\product\create" enctype="multipart/form-data">
             <div class="small-12 medium-11" style="padding: 25px">
                 <div class="row expanded">
                     <div class="small-12 medium-6 column">
@@ -25,7 +25,7 @@
 
                     <div class="small-12 medium-6 column">
                         <label>Product Price:
-                            <input type="text" name="Price" placeholder="Product Price"
+                            <input type="text" name="price" placeholder="Product Price"
                             value="{{\App\classes\Request::old('post','Price')}}">
                         </label>
                     </div>
