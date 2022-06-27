@@ -7060,6 +7060,25 @@ table th, table tr, table td {
   }
 }
 
+.home {
+  padding-top: 4.65rem;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .home {
+    padding-top: 3rem;
+  }
+}
+
+.home .hero {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.home .hero .hero-slider img {
+  width: 100% !important;
+}
+
 .slide-in-down.mui-enter {
   transition-duration: 500ms;
   transition-timing-function: linear;

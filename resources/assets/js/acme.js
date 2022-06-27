@@ -3,7 +3,8 @@
     
     window.ACMESTORE = {
         global: {},
-        admin:{}  
+        admin:{},  
+        homeslider:{}  
     };
 
 })();
