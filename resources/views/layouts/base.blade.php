@@ -6,6 +6,7 @@
     <title>ACME Store - @yield('title') </title>
 
     <link rel="stylesheet" href="/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 </head>
 <body data-page-id="@yield('data-page-id')">
