@@ -6908,36 +6908,6 @@ table th, table tr, table td {
   border: 1px solid #c0c0c0;
 }
 
-.reveal {
-  border: 0;
-  border-radius: 0.5rem;
-}
-
-.reveal:focus {
-  outline-style: none;
-}
-
-.reveal h2 {
-  font-size: 1.5rem;
-  font-weight: 500px;
-}
-
-.notification {
-  display: none;
-}
-
-.notification ul li {
-  list-style-type: none;
-}
-
-.fa-edit {
-  color: #895848;
-}
-
-.fa-times {
-  color: #ff0000;
-}
-
 .nav {
   background-color: #2a3f54;
 }
@@ -6983,6 +6953,111 @@ table th, table tr, table td {
 .admin-title-bar .title-bar-title {
   font-size: 1.5rem;
   color: #0a0a0a;
+}
+
+.navigation {
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  font-family: "Open sans", sans-serif;
+}
+
+.navigation .logo {
+  background-image: url("/images/logo.png");
+  width: 10rem;
+  height: 2.6rem;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.navigation .toggle {
+  line-height: 3rem;
+  padding: 0 0.5rem 0.3rem 0.5rem;
+  background-color: #030303;
+}
+
+.navigation .toggle .menu-icon {
+  margin-top: 0.5rem;
+}
+
+.navigation .toggle .menu-icon:focus {
+  outline-style: none;
+}
+
+.navigation .toggle .menu-icon::after {
+  width: 1.8rem;
+}
+
+.navigation .toggle .small-logo {
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  height: 2.6rem;
+  width: 6rem;
+}
+
+.navigation .toggle .small-logo:focus {
+  outline-style: none;
+}
+
+.navigation .top-bar {
+  background-color: #1B1920;
+}
+
+.navigation .top-bar .menu {
+  background-color: #1B1920;
+}
+
+.navigation .top-bar .menu li {
+  color: #def0fc;
+}
+
+.navigation .top-bar .menu li a {
+  color: #def0fc;
+  text-decoration: none;
+}
+
+@media print, screen and (min-width: 40em) and (max-width: 63.99875em) {
+  .navigation .top-bar .menu li a {
+    font-size: 0.6rem;
+  }
+}
+
+.navigation .top-bar .menu li a:hover {
+  color: #e64d0c;
+}
+
+.navigation .top-bar .menu li a:focus {
+  outline-style: none;
+}
+
+.navigation .top-bar ul.menu.vertical.sub {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .navigation .top-bar ul.menu.vertical.sub {
+    margin-bottom: 4rem;
+    width: 100% !important;
+  }
+}
+
+.navigation .top-bar ul.menu.vertical.sub li {
+  border-bottom: 1px dotted #ffffff;
+}
+
+.navigation .top-bar ul.menu.vertical.sub li:last-of-type {
+  border-bottom: none;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .navigation .top-bar ul.menu.vertical {
+    text-align: left;
+  }
 }
 
 .slide-in-down.mui-enter {
