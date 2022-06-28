@@ -13,19 +13,11 @@ class IndexController extends BaseController
     public function show()
     {
         $token = CSRFToken::_token();
-        return view('home',compact('token'));
+        $featuredProducts = Product::where('featured', 1)->inRandomOrder()->limit(4)->get();
+        $normalProducts = Product::where('featured', 0)->skip(0)->take(8)->get();
+        return view('home',compact('token', 'featuredProducts', 'normalProducts'));
     }
 
-    public function featuredProducts (){
-
-        $products = Product::where('featured', 1)->inRandomOrder()->limit(4)->get();
-        echo json_encode(['featured' => $products]);
-    }
-
-    public function getProducts(){
-        $products = Product::where('featured', 0)->skip(0)->take(8)->get();
-        echo json_encode(['products' => $products, 'count' => count($products)]);
-    }
 
     public function loadMoreProducts (){
         $request = Request::get('post');
