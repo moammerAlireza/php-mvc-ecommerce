@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script>
 
 </head>
 <body data-page-id="@yield('data-page-id')">
