@@ -13,18 +13,30 @@
             </div>
         </section>
 
-        <section>
-            <div id="root">
-                @{{ message }}
-            </div>
+        <section class="display-products" id="root">
+           <div class="row medium-up-4">
+                <h2>Featured Products</h2>
+                <div class="small-12 column" v-for="feature in featured">
+                    <a :href="'/product/' + feature.id">
+                        <div class="card" data-equalizer-watch>
+                            <div class="card-section">
+                              <img :src="'/' + feature.image_path" width="100%" height="200">
+                            </div>
+                            <div class="card-section">
+                              <p>
+                                @{{feature.name}}
+                              </p>
+                              <a :href="'/product/' + feature.id" class="button more expanded">
+                                 See More
+                              </a>
+                              <a :href="'/product/' + feature.id" class="button cart expanded">
+                                $@{{feature.price}} - Add to cart
+                             </a>
+                            </div>
+                          </div>
+                    </a>
+                </div>
+           </div>
         </section>
     </div>
-    <script type="text/javascript">
-        new Vue({
-            el:'#root',
-            data:{
-                message:'This is short intro to vueJS'
-            }
-        });
-    </script>
 @endsection

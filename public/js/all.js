@@ -189,7 +189,9 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
                     this.loading = true;
                     axios.get('/featured').then(function (response) {
                         console.log(response.data);
-                    })
+                        app.featured = response.data.featured;
+                        app.loading = false;
+                    });
                 }
             },
             created: function () {
